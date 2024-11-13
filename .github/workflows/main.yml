@@ -1,4 +1,4 @@
-name: Add comment
+name: Generate performance fix
 on:
   issues:
     types:
