@@ -24,7 +24,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Install dependencies
-        run: npm install @actions/core @actions/github node-fetch js-base64 @octokit/rest
       - name: Fix Perf Issue
         uses: ./ # Uses an action in the root directory
         id: fix
