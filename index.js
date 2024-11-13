@@ -69,7 +69,7 @@ async function run() {
             const clean_code_text = code_text.substring(code_text.indexOf(code_to_remove) + code_to_remove.length);
 
             // Fixed file
-            const fixed_file = fix_file(buggy_file_data, start_line_number, end_line_number, clean_code_text)
+            const fixed_file = fix_file(buggy_file_data, start_line_number, end_line_number, clean_code_text);
             console.log(fixed_file);
 
             // Create branch
