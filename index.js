@@ -150,6 +150,7 @@ async function get_deepprompt_response(auth_token, session_id, buggy_file_data, 
         }
         return response_json["response_text"];
     } catch (error) {
+        console.dir(error);
         core.setFailed(`An error occurred while trying to make a DeepPrompt request: ${error.message}`);
     }
 }
