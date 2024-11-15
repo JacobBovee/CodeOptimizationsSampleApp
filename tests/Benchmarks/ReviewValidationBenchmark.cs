@@ -18,9 +18,4 @@ public class ReviewValidationBenchmark
     {
         ReviewValidation.StringValidation(SampleData, ReplacementChar, SampleCulture);
     }
-
-    public static void Main(string[] args)
-    {
-        var summary = BenchmarkRunner.Run<ReviewValidationBenchmark>();
-    }
 }
