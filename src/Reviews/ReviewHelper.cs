@@ -27,7 +27,7 @@ internal static class ReviewHelper
                 text[i] = (char)Random.Shared.Next('a', 'z' + 1);
             }
 
-            return text.ToString();
+            return new string(text);
         }
     }
 }
