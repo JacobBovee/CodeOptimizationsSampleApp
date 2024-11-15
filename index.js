@@ -53,6 +53,7 @@ async function run() {
 
             // Localization
             const localization = await get_localization_values(found_files, parent_class_name, parent_method_name, child_method_name);
+            console.dir('localization', localization);
             const buggy_file_path = localization[0];
             const buggy_method_name = localization[1];
             const buggy_range = localization[2];
