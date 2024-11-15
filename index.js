@@ -123,6 +123,7 @@ async function get_deepprompt_response(auth_token, session_id, buggy_file_data, 
     const url = `${DEEPPROMPT_ENDPOINT}/query`;
     const intent = 'perf_fix';
     const prompt_strategy = 'instructive';
+    console.dir('Buggy file data', buggy_file_data);
     try {
         const response = await fetch(url, {
             method: 'POST',
