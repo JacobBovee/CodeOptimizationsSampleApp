@@ -56,7 +56,7 @@ jobs:
           dotnet-version: "8.0.x" # Ensure this matches the TargetFramework in your .csproj file
 
       - name: Restore dependencies
-        run: dotnet restore
+        run: dotnet restore --project tests/Benchmarks/Benchmarks.csproj
       - name: Run Benchmarks
         run: dotnet run -c Release --project tests/Benchmarks/Benchmarks.csproj
       - name: Upload baseline benchmark results
@@ -89,7 +89,7 @@ jobs:
           dotnet-version: "8.0.x" # Ensure this matches the TargetFramework in your .csproj file
 
       - name: Restore dependencies
-        run: dotnet restore
+        run: dotnet restore --project tests/Benchmarks/Benchmarks.csproj
       - name: Run Benchmarks
         run: dotnet run -c Release --project tests/Benchmarks/Benchmarks.csproj
       - name: Upload baseline benchmark results
