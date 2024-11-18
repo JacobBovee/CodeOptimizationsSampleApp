@@ -267,7 +267,7 @@ async function create_branch(octokit, repo_url, branch_name) {
         const response = await octokit.git.getRef({
             owner: user,
             repo: repo,
-            ref: base_branch
+            ref: base_branch.replace('refs/', '')
         });
         if (response.error) {
             core.setFailed(`The GitHub API returned an error: ${response.error.message}`);
