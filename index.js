@@ -50,6 +50,10 @@ async function run() {
             const path_ending = `${parent_class_name}.cs`;
             const found_files = searchFiles('./', path_ending);
             console.log(`Found files for ${path_ending}: ${found_files.join('\n')}`);
+            console.log(`Parent class name: ${parent_class_name}`);
+            console.log(`Parent method name: ${parent_method_name}`);
+            console.log(`Child class name: ${child_class_name}`);
+            console.log(`Child method name: ${child_method_name}`);
 
             // Localization
             const localization = await get_localization_values(found_files, parent_class_name, parent_method_name, child_method_name);
@@ -384,6 +388,9 @@ async function get_localization_values(found_files, parent_class_name, parent_me
         if (buggy_range.length > 0) {
             return [file.toString(), child_method_name, buggy_range, file_data];
         }
+        console.dir('Buggy range', buggy_range);
+        console.dir('File data', file_data);
+        console.dir('File', file);
     }
 
     for (let i = 0; i < found_files.length; i++) {
@@ -399,6 +406,9 @@ async function get_localization_values(found_files, parent_class_name, parent_me
         if (buggy_range.length > 0) {
             return [file.toString(), "", buggy_range, file_data];
         }
+        console.dir('Buggy range', buggy_range);
+        console.dir('File data', file_data);
+        console.dir('File', file);
     }
 
     return ["", "", [], ""];
