@@ -263,6 +263,7 @@ async function create_branch(octokit, repo_url, branch_name) {
     let develop_sha;
     try {
         const base_branch = core.getInput('base-branch');
+        console.dir(base_branch);
         const response = await octokit.git.getRef({
             owner: user,
             repo: repo,
@@ -272,6 +273,7 @@ async function create_branch(octokit, repo_url, branch_name) {
             core.setFailed(`The GitHub API returned an error: ${response.error.message}`);
         }
         develop_sha = response.data.object.sha;
+        console.dir(develop_sha);
     } catch (error) {
         core.setFailed(`An error occurred while trying to get the ref SHA: ${error.message}`);
     }
