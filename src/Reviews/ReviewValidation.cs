@@ -10,13 +10,13 @@ public class ReviewValidation
 
     public static string StringValidation(string data, char replacementChar, CultureInfo culture)
     {
-        List<string> wordList = DisallowedWords
+        var wordList = DisallowedWords
             .Where(word => culture.Equals(CultureInfo.InvariantCulture) || culture.Equals(word.Culture))
-            .Select(word => word.Text).ToList();
+            .Select(word => word.Text);
 
-        foreach (string word in wordList)
+        foreach (var word in wordList)
         {
-            data = data.Replace(word, replacementChar.ToString(), ignoreCase: true, culture);
+            data = data.Replace(word, replacementChar.ToString(), StringComparison.CurrentCultureIgnoreCase);
         }
         return data;
     }
