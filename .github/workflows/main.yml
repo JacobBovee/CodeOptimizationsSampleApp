@@ -33,6 +33,7 @@ jobs:
           issue-title: ${{ github.event.issue.title }}
           issue-body: ${{ github.event.issue.body }}
           issue-number: ${{ github.event.issue.number }}
+          base-branch: ${{ github.ref }}
 
   run-initial-benchmark:
     if: github.event.label.name == 'perf'

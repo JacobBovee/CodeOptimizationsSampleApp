@@ -40,6 +40,7 @@ async function run() {
 
             // Symbols
             const parent_symbol = issue_body.split('<!-- ps: ')[1].split(' -->')[0];
+            console.log('parent_symbol:', parent_symbol);
             const child_symbol = issue_body.split('<!-- s: ')[1].split(' -->')[0];
             console.log('child_symbol:', child_symbol); 
             const parent_class_name = parent_symbol.split('!')[0].split('.').at(-1);
@@ -261,10 +262,11 @@ async function create_branch(octokit, repo_url, branch_name) {
 
     let develop_sha;
     try {
+        const base_branch = core.getInput('base-branch');
         const response = await octokit.git.getRef({
             owner: user,
             repo: repo,
-            ref: 'heads/develop'
+            ref: base_branch
         });
         if (response.error) {
             core.setFailed(`The GitHub API returned an error: ${response.error.message}`);
